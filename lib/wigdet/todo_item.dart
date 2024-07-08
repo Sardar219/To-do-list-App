@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_first/Model/todo.dart';
 import 'package:flutter_first/color/color.dart';
 
-class Todo extends StatelessWidget {
-  const Todo({super.key});
+class Todo_Item extends StatelessWidget {
+  final Todo todo;
+  const Todo_Item({Key? key, required this.todo}) : super(key:key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class Todo extends StatelessWidget {
         ),
         tileColor: Colors.white,
         leading: Icon(Icons.check_box,color: tdBlue,),
-        title: Text("Check Mail",style: TextStyle(fontSize: 20,color: tdBlack,decoration: TextDecoration.lineThrough),),
+        title: Text(todo.todoText!,style: TextStyle(fontSize: 20,color: tdBlack,decoration: TextDecoration.lineThrough),),
         trailing: Container(
           width: 35,
           height: 35,
