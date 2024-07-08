@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutter_first/appbar.dart';
 import 'package:flutter_first/color/color.dart';
 
 class Home extends StatelessWidget {
@@ -7,12 +9,14 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title:Container(
-          child: Image.asset("assets/images/logo.HEIC",width: 50,),
-        )
-      ),
+      backgroundColor: tdBGColor,
+      appBar: BuildAppbar(),
       drawer: Drawer(),
+      body: Container(
+        child: Text("sddd"),
+      ),
     );
   }
+
+
 }
