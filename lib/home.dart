@@ -27,6 +27,13 @@ class Home extends StatelessWidget {
                     child: Text("All ToDo",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
                   ),
                   Todo(),
+                  Todo(),
+                  Todo(),
+                  Todo(),
+                  Todo(),
+                  Todo(),
+                  Todo(),
+                  Todo(),
                 ],
               ),
             )

@@ -8,8 +8,11 @@ class Todo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(bottom: 14),
       child: ListTile(
-        onTap: (){},
+        onTap: (){
+          print("List Tile");
+        },
         contentPadding: EdgeInsets.symmetric(horizontal: 20,vertical: 5),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
