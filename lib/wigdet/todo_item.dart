@@ -20,8 +20,8 @@ class Todo_Item extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         tileColor: Colors.white,
-        leading: Icon(Icons.check_box,color: tdBlue,),
-        title: Text(todo.todoText!,style: TextStyle(fontSize: 20,color: tdBlack,decoration: TextDecoration.lineThrough),),
+        leading: Icon(todo.isDone?Icons.check_box:Icons.check_box_outline_blank,color: tdBlue,),
+        title: Text(todo.todoText!,style: TextStyle(fontSize: 20,color: tdBlack,decoration: todo.isDone? TextDecoration.lineThrough:null),),
         trailing: Container(
           width: 35,
           height: 35,
