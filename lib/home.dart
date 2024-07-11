@@ -120,8 +120,13 @@ class _HomeState extends State<Home> {
   void _runFilter(String enteredKeyword){
     List<Todo> result= [];
     if(result.isEmpty){
-      
+      result=todosList;
+    }else{
+      result=todosList.where((item) => item.todoText!.toLowerCase().contains(enteredKeyword.toLowerCase())).toList()
     }
+    setState(() {
+      _foundToDo=result;
+    });
   }
 }
 
