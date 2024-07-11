@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
                     margin: EdgeInsets.only(top: 50,bottom: 20),
                     child: Text("All ToDo",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
                   ),
-                  for( Todo todo in _foundToDo)
+                  for( Todo todo in _foundToDo.reversed)
                     Todo_Item(todo: todo,
                     onTodoChange: _handleTodoChanges,
                       onTodoDelete: _deleteTodoItem,
