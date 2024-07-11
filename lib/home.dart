@@ -42,17 +42,19 @@ class _HomeState extends State<Home> {
                     margin: EdgeInsets.only(top: 50,bottom: 20),
                     child: Text("All ToDo",style: TextStyle(fontSize: 30,fontWeight: FontWeight.w500),),
                   ),
-                  for( Todo todo in todosList)
+                  for( Todo todo in _foundToDo)
                     Todo_Item(todo: todo,
                     onTodoChange: _handleTodoChanges,
                       onTodoDelete: _deleteTodoItem,
                     ),
                 ],
               ),
-            )
+            ),
+            SizedBox(height: 65,)
           ],
         ),
       ),
+
       Align(
         alignment:Alignment.bottomCenter,
         child:Row(
@@ -101,6 +103,31 @@ class _HomeState extends State<Home> {
       ),
     );
   }
+  Widget seachBox(){
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child:
+      TextField(
+        onChanged:(value) => _runFilter(value),
+        decoration: InputDecoration(
+            contentPadding: EdgeInsets.all(0),
+            prefixIcon: Icon(Icons.search,color: tdBlack, size: 20,),
+            prefixIconConstraints: BoxConstraints(
+              // maxHeight: 20,
+              // minWidth: 25,
+            ),
+            border: InputBorder.none,
+            hintText: "Search",
+            hintStyle: TextStyle(color: tdGrey)
+        ),
+      ),
+    );
+
+  }
   void _handleTodoChanges(Todo todo){
     setState(() {
       todo.isDone=!todo.isDone;
@@ -119,10 +146,10 @@ class _HomeState extends State<Home> {
   }
   void _runFilter(String enteredKeyword){
     List<Todo> result= [];
-    if(result.isEmpty){
+    if(enteredKeyword.isEmpty){
       result=todosList;
     }else{
-      result=todosList.where((item) => item.todoText!.toLowerCase().contains(enteredKeyword.toLowerCase())).toList()
+      result=todosList.where((item) => item.todoText!.toLowerCase().contains(enteredKeyword.toLowerCase())).toList();
     }
     setState(() {
       _foundToDo=result;
