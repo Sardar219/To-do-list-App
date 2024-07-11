@@ -38,7 +38,12 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      Ali
+      Align(
+        alignment:Alignment.bottomCenter,
+        child:Row(children:[
+          Expanded(child:Container(margin:Ed))
+        ])
+      )
     ],
       ),
     );
