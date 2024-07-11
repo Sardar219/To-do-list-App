@@ -15,7 +15,9 @@ class Home extends StatelessWidget {
       backgroundColor: tdBGColor,
       appBar: BuildAppbar(),
       drawer: Drawer(),
-      body: Container(
+      body: Stack(
+    children:[
+      Container(
         padding: EdgeInsets.symmetric(horizontal: 12,vertical: 10),
         child: Column(
           children: [
@@ -35,6 +37,9 @@ class Home extends StatelessWidget {
             )
           ],
         ),
+      ),
+      Ali
+    ],
       ),
     );
   }
