@@ -14,7 +14,14 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final todosList = Todo.todoList();
+  List<Todo> _foundToDo=[];
+  final _todoController=TextEditingController();
 
+  @override
+  void initState() {
+    _foundToDo=todosList;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,10 +45,8 @@ class _HomeState extends State<Home> {
                   for( Todo todo in todosList)
                     Todo_Item(todo: todo,
                     onTodoChange: _handleTodoChanges,
-                      onTodoDelete: (){},
+                      onTodoDelete: _deleteTodoItem,
                     ),
-
-
                 ],
               ),
             )
@@ -67,6 +72,7 @@ class _HomeState extends State<Home> {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: TextField(
+                    controller: _todoController,
                     decoration: InputDecoration(
                       hintText: "Add new to-do item",
                       border: InputBorder.none
@@ -78,7 +84,9 @@ class _HomeState extends State<Home> {
                 margin: EdgeInsets.only(bottom: 20,right: 20),
                 child: ElevatedButton(
                   child: Text("+",style: TextStyle(fontSize: 40,color: Colors.white),),
-                  onPressed: (){},
+                  onPressed: (){
+                    _addTodoItem(_todoController.text);
+                  },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: tdBlue,
                     minimumSize: Size(60, 60),
@@ -99,7 +107,21 @@ class _HomeState extends State<Home> {
     });
   }
   void _deleteTodoItem(String id){
-    todosList.remove((item)=>item.id==id)
+    setState(() {
+      todosList.removeWhere((item)=>item.id==id);
+    });
+  }
+  void _addTodoItem(String toDo){
+    setState(() {
+      todosList.add(Todo(id: DateTime.now().microsecondsSinceEpoch.toString(), todoText: toDo));
+    });
+    _todoController.clear();
+  }
+  void _runFilter(String enteredKeyword){
+    List<Todo> result= [];
+    if(result.isEmpty){
+      
+    }
   }
 }
 

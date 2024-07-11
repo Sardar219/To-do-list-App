@@ -42,7 +42,7 @@ class Todo_Item extends StatelessWidget {
             iconSize: 18,
             icon: Icon(Icons.delete),
             onPressed: (){
-              print("Yes Its work!!!");
+              onTodoDelete(todo.id);
             },
           ),
         ),
