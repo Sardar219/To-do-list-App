@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,13 +15,16 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    final screenWidth=MediaQuery.of(context).size.width;
+    // ignore: unused_local_variable
+    final screenHeight=MediaQuery.of(context).size.height;
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Container(
-          child: Text("yess"),
-        ),
-      ),
+      theme: ThemeData(fontFamily: "googlesans"),
+      home: Home(),
+      routes: {},
     );
   }
 }
